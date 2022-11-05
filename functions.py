@@ -1,5 +1,6 @@
 import random
 import time
+import datetime
 import math
 #import tkinter
 
@@ -15,21 +16,21 @@ import math
 #  5. [done] Function that checks for palindrom for eg. Kamil Ślimak
 #  6. [working]Check for length of characters in a word or sentence (without spaces)
 #  7. [done]Two numbers added and biggest common denominator calculated
-#  8. Calculation of devision for a big number (up to ten thousand)
-#  9. Generation of a random number
-# 10. Area of a square
-# 11. Area of a triangle
+#  8. [done]Calculation of devision for a chosen number
+#  9. [done]Generation of a random number
+# 10. [done]Area of a square
+# 11. [done]Area of a triangle
 # 12. [done]Calculation of square root
 # 13. [done]Conversion of miles to km/h and vice versa https://www.youtube.com/watch?v=jtM9RLAENVE
 # 14. [done]Conversion of Celcius to Farenheit and vice versa
 # 15. Checck if a number is positive, negative or equal to 0
 # 16. Removing punctuations from a string https://www.programiz.com/python-programming/examples/remove-punctuation
 # 17. Finding the largest of three numbers
-# 18. Finding a distance on x,y plane
+# 18. [done]Finding a distance on x,y plane
 # 19. Check int input for a prime number
 # 20. [done]Reverse a given string in python (I want to use reverse(examplestring)) https://www.geeksforgeeks.org/reverse-words-given-string-python/
-# 21. Get current time and show it https://www.geeksforgeeks.org/python-program-to-get-current-time/
-# 22. Currency calculation (offline, eg euro to pln)
+# 21. [done]Get current time and show it https://www.geeksforgeeks.org/python-program-to-get-current-time/
+# 22. [done]Currency calculation (offline, eg euro to pln)
 # 23. Horoscope (random - probably extra file and a random finction)
 # 24. Zodiac sighns (chineese and european) based on birthday date, additionaly showing relations
 # 25. Planets from solar system and after choosing from 1-9 some facts about them
@@ -145,19 +146,43 @@ def biggest_common_denominator():
 
 
 def calculation_of_divisibles():
-    print("placeholder")
+    num = float(input("Input a number which you want to check divisibility of: "))
+    div = float(input("Input a number which you want to devde by: "))
 
+    if num%div == 0:
+        print ("The number is divisible.")
+    else:
+        print ("The number is not divisible.")
 
 def big_number_generation():
-    print("placeholder")
+    print("This program will generate a big random number")
+    user_input = int(input("Up to what number in range should we generate? \n: "))
+
+    random_num = random.randrange((user_input * 0.2), user_input)
+    print("Your random number is", random_num)
+    time.sleep(5)
 
 
 def square_area():
-    print("placeholder")
+    #print("This program calculates the area of a square.")
+    square_side = float(input("Input the length of your square to calculate area \n: "))
+    area = square_side * square_side
+    print("Your area is:", area)
+
+    time.sleep(5)
 
 
 def triangle_area():
-    print("placeholder")
+    a = float(input("Input the 1 side: "))
+    b = float(input("Input the 2 side: "))
+    c = float(input("Input the 3 side:"))
+
+    s = (a + b + c)/2
+    area = (s*(s - a)*(s - b)*(s - c))** 0.5
+    rounded_area = round(area, 2)
+    print("Your area of triangle is:", rounded_area)
+
+    time.sleep(5)
 
 
 def square_root_calc():
@@ -166,11 +191,13 @@ def square_root_calc():
     result = round(result_before, 3)
     print(f"This is the result: {result}")
 
+
 def conv_kmh_mph():  # need to be able to choose which conversion
     kmph = float(input("How many km/h?\n :"))
     mph = (kmph * 0.621371)
     print (kmph," km/h is equal to " 
           ,round(mph, 3) ," miles per hour.")
+
 
 def conv_celcius_farenheit(): #  need to be able to choose which converison
     celsius = float(input("How many Caelsius degrees?\n :"))
@@ -192,7 +219,16 @@ def largest_of_three_numbers():
 
 
 def distance_on_xy_plane():
-    print("placeholder")
+    print("Calculating distance between two points on x,y plane:")
+    x=int(input("input x of first point: "))
+    y=int(input("input y of first point: "))
+    print("Now second point:")
+    x2=int(input("input x of second point: "))
+    y2=int(input("input y of second point: "))
+    answer = round(math.sqrt((x-x2)**2 + (y-y2)**2), 2)
+    print(f"Your answer is: {answer}")
+
+    time.sleep(5)
 
 
 def prime_num_check():
@@ -207,12 +243,42 @@ def phrase_reverse():
 
 
 def time_show():
-    print("placeholder")
+    current_time = datetime.datetime.now()
+    print(f"The current time is {current_time}")
+    time.sleep(5)
 
 
 def currency_exchange():
-    print("placeholder")
+    user_choice = "0"
+    user_input = 0.0
+    pln = 4.7
+    eur = 1.0
+    
+    def eur_to_pln():
+        user_input = float(input("How much euro to exchange? \n: "))
+        ans = user_input * pln
+        print(f"You have{ans} pln.") 
+    def pln_to_eur():
+        user_input = float(input("How much pln to exchange? \n"))
+        ans = user_input // pln
+        print(f"You have {ans} euro.") 
 
+    dict_choice = {
+        "1":eur_to_pln,
+        "2":pln_to_eur
+    }
+
+    while True:
+        print("""
+        1.Euro to Pln
+        2.Pln to Euro
+        3.Exit
+        """)
+        user_choice = input("State your choice: ")
+        if user_choice == "3":
+            break
+        else:
+            dict_choice[user_choice]()
 
 def horoscope():
     print("placeholder")

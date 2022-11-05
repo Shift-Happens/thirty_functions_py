@@ -48,7 +48,7 @@ while True:
     5.Palindrom check (eg: racecar reversed is racecar)
     6.Checking length of a sentence or a word (no space or special characters)
     7.Biggest common denominator of two numbers
-    8.Calculation of devisibles of a big number
+    8.Calculation of devisibles of a chosen number
     9. Generation of a random number
     10.Area of a square
     11.Area of a triagle
@@ -61,7 +61,7 @@ while True:
     18.Finding a distance on x,y plane
     19.Check for a prime number
     20.Reverse a given phrase in python
-    21.Get current time and show it
+    21.Get current date and time to show it
     22.Currency calculation (euro/pln and pln/euro)
     23.Horoscope
     24.Zodiac sighns
