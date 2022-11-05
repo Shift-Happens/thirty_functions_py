@@ -2,6 +2,8 @@ import random
 import time
 import datetime
 import math
+import cmath
+import linecache
 #import tkinter
 
 # 30 functionalities in one exectuable programme:
@@ -15,30 +17,30 @@ import math
 #  4. [done] Simple calculator (add, subtract, multiply, devide)
 #  5. [done] Function that checks for palindrom for eg. Kamil Ślimak
 #  6. [working]Check for length of characters in a word or sentence (without spaces)
-#  7. [done]Two numbers added and biggest common denominator calculated
-#  8. [done]Calculation of devision for a chosen number
-#  9. [done]Generation of a random number
-# 10. [done]Area of a square
-# 11. [done]Area of a triangle
-# 12. [done]Calculation of square root
-# 13. [done]Conversion of miles to km/h and vice versa https://www.youtube.com/watch?v=jtM9RLAENVE
-# 14. [done]Conversion of Celcius to Farenheit and vice versa
-# 15. Checck if a number is positive, negative or equal to 0
+#  7. [done]T wo numbers added and biggest common denominator calculated
+#  8. [done] Calculation of devision for a chosen number
+#  9. [done] Generation of a random number
+# 10. [done] Area of a square
+# 11. [done] Area of a triangle
+# 12. [done] Calculation of square root
+# 13. [done] Conversion of miles to km/h and vice versa https://www.youtube.com/watch?v=jtM9RLAENVE
+# 14. [done] Conversion of Celcius to Farenheit and vice versa
+# 15. [done]Checck if a number is positive, negative or equal to 0
 # 16. Removing punctuations from a string https://www.programiz.com/python-programming/examples/remove-punctuation
-# 17. Finding the largest of three numbers
-# 18. [done]Finding a distance on x,y plane
-# 19. Check int input for a prime number
-# 20. [done]Reverse a given string in python (I want to use reverse(examplestring)) https://www.geeksforgeeks.org/reverse-words-given-string-python/
-# 21. [done]Get current time and show it https://www.geeksforgeeks.org/python-program-to-get-current-time/
-# 22. [done]Currency calculation (offline, eg euro to pln)
+# 17. [done]Finding the largest of three numbers
+# 18. [done] Finding a distance on x,y plane
+# 19. [done] Check int input for a prime number
+# 20. [done] Reverse a given string in python (I want to use reverse(examplestring)) https://www.geeksforgeeks.org/reverse-words-given-string-python/
+# 21. [done] Get current time and show it https://www.geeksforgeeks.org/python-program-to-get-current-time/
+# 22. [done] Currency calculation (offline, eg euro to pln)
 # 23. Horoscope (random - probably extra file and a random finction)
 # 24. Zodiac sighns (chineese and european) based on birthday date, additionaly showing relations
-# 25. Planets from solar system and after choosing from 1-9 some facts about them
+# 25. [done]Planets from solar system and after choosing from 1-9 some facts about them
 # 26. TickTackToe 
 # 27. Hangman 
-# 28. [done]Counting PI using MonteCarlo method
-# [to fix - maybe cmath]29. Solving quadratic equasions (a, b, c and -b formula) https://www.programiz.com/python-programming/examples/quadratic-roots
-# 30. [done]countdown timer
+# 28. [done] Counting PI using MonteCarlo method
+# 29. [done]29. Solving quadratic equasions (a, b, c and -b formula) https://www.programiz.com/python-programming/examples/quadratic-roots
+# 30. [done] countdown timer
 
 
 # if __name__ == '__main__':
@@ -154,6 +156,7 @@ def calculation_of_divisibles():
     else:
         print ("The number is not divisible.")
 
+
 def big_number_generation():
     print("This program will generate a big random number")
     user_input = int(input("Up to what number in range should we generate? \n: "))
@@ -207,7 +210,16 @@ def conv_celcius_farenheit(): #  need to be able to choose which converison
 
 
 def check_num_pos_or_neg():
-    print("placeholder")
+    user_input = int(input("Input your number to check (integer): "))
+    if user_input < 0:
+        print("Your number is negative")
+        time.sleep(5)
+    elif -1 < user_input < 1:
+        print("Your number is a zero")
+        time.sleep(5)
+    else:
+        print("Your number is positive")
+        time.sleep(5)
 
 
 def punctuation_remove():
@@ -215,7 +227,19 @@ def punctuation_remove():
 
 
 def largest_of_three_numbers():
-    print("placeholder")
+    a = int(input("Input your number 1 to compare"))
+    b = int(input("Input your number 2 to compare"))
+    c = int(input("Input your number 3 to compare"))
+    largest = 0
+
+    if a > b and a > c:
+        largest = a
+    elif b > c:
+        largest = b
+    else:
+        largest = c
+
+    print (f"{largest} is your biggest number out of three")
 
 
 def distance_on_xy_plane():
@@ -232,7 +256,16 @@ def distance_on_xy_plane():
 
 
 def prime_num_check():
-    print ("placehlder")
+    user_num = int(input("Enter a number to check if it's a prime: "))
+    div_by_self = user_num % user_num
+    div_by_one = user_num % 1
+
+    if div_by_self == 0 and div_by_one ==0:
+        print("Your number is a prime number.")
+        time.sleep(5)
+    else:
+        print("Your number is not a prime number.")
+        time.sleep(5)
 
 
 def phrase_reverse():
@@ -289,7 +322,33 @@ def zodiac_sighns():
 
 
 def planet_facts():
-    print("placeholder")
+    numer= int(input("""
+    Hi, choose a number from 1 to 8, each one will tell you about a different planet
+    If you can't decide, press 9, will choose a random planet
+    To exit press 0 
+    """))
+
+    plik=open("planets.txt")
+
+    def funkcja(numer):
+        wiersz = linecache.getline("planety.txt", numer)
+        print(wiersz)
+
+    while True:
+        if numer == 0:
+            break
+
+        elif numer==9:
+            numer=(random.randint(1,8))
+            funkcja(numer)
+            time.sleep(5)
+            return
+        else:
+            funkcja(numer)
+            time.sleep(5)
+            return
+
+    plik.close()
 
 
 def tick_tack_toe():
@@ -338,23 +397,25 @@ def pi_monte_carlo():
     time.sleep(5)
 
 
-def quadratic_equasions():  # math domain error to fix - line 253
+def quadratic_equasions():
 
-    a = 2
-    b = 5
-    c = 8
+    a = int(input("input a:"))
+    b = int(input("input b:"))
+    c = int(input("input c:"))
 
     d = (b**2) - (4*a*c)
-    sqrt = math.sqrt(d)
+    sqrt = cmath.sqrt(d)
     #sqrt_git = round(sqrt, 4)
     sol_1 = (-b-sqrt)/(2*a)
     sol_2 = (-b+sqrt)/(2*a)
 
+    # sol_1 = round(sol_1_before, 3)
+    # sol_2 = round(sol_2_before, 3)
+    
     print("Solution 1:", sol_1)
     print("Solution 2:", sol_2)
 
 
-# 30. countdown timer
 def countdown_timer():
      #   input time in seconds
     t = int(input("Enter the time in seconds: "))

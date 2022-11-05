@@ -49,7 +49,7 @@ while True:
     6.Checking length of a sentence or a word (no space or special characters)
     7.Biggest common denominator of two numbers
     8.Calculation of devisibles of a chosen number
-    9. Generation of a random number
+    9.Generation of a random number
     10.Area of a square
     11.Area of a triagle
     12.Calculation of square root or an aproximation
