@@ -4,6 +4,7 @@ import datetime
 import math
 import cmath
 import linecache
+import re
 #import tkinter
 
 # 30 functionalities in one exectuable programme:
@@ -16,7 +17,7 @@ import linecache
 #  3. [done] Changing up words in pig latin
 #  4. [done] Simple calculator (add, subtract, multiply, devide)
 #  5. [done] Function that checks for palindrom for eg. Kamil Ślimak
-#  6. [working]Check for length of characters in a word or sentence (without spaces)
+#  6. [done]Check for length of characters in a word or sentence (without spaces)
 #  7. [done]T wo numbers added and biggest common denominator calculated
 #  8. [done] Calculation of devision for a chosen number
 #  9. [done] Generation of a random number
@@ -26,7 +27,7 @@ import linecache
 # 13. [done] Conversion of miles to km/h and vice versa https://www.youtube.com/watch?v=jtM9RLAENVE
 # 14. [done] Conversion of Celcius to Farenheit and vice versa
 # 15. [done]Checck if a number is positive, negative or equal to 0
-# 16. Removing punctuations from a string https://www.programiz.com/python-programming/examples/remove-punctuation
+# 16. [done]Removing punctuations from a string https://www.programiz.com/python-programming/examples/remove-punctuation
 # 17. [done]Finding the largest of three numbers
 # 18. [done] Finding a distance on x,y plane
 # 19. [done] Check int input for a prime number
@@ -135,7 +136,7 @@ def poliandrom_check():
 def length_of_string_count():  #  to finish
     user_input = input("Please input a word or a sentence\n :")
     user_input_clean = len(user_input) - user_input.count(" ")
-    print(user_input)
+    print(user_input_clean)
 
 
 def biggest_common_denominator():
@@ -223,7 +224,10 @@ def check_num_pos_or_neg():
 
 
 def punctuation_remove():
-    print("placeholder")
+    string = input("Input your string to be stripped of special characters: ")
+    new_string = re.sub(r'[^\w\s]', ' ', string)
+    print(new_string)
+    time.sleep(5)
 
 
 def largest_of_three_numbers():

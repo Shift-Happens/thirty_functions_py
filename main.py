@@ -46,7 +46,7 @@ while True:
     3.Words in pig latin
     4.Simple calculator
     5.Palindrom check (eg: racecar reversed is racecar)
-    6.Checking length of a sentence or a word (no space or special characters)
+    6.Checking length of a sentence or a word (no space)
     7.Biggest common denominator of two numbers
     8.Calculation of devisibles of a chosen number
     9.Generation of a random number
@@ -56,7 +56,7 @@ while True:
     13.Conversion of km/h to miles/h
     14.Conversion of Celcius to Farenheit
     15.Check if a number is positive, negative or equal to 0
-    16.Removing punctuations from a stringe
+    16.Removing punctuations from a string
     17.Finding the largest of three numbers
     18.Finding a distance on x,y plane
     19.Check for a prime number

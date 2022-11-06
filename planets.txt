@@ -1,8 +1,8 @@
-Merkury	r=2,439km	dł.dnia=58d. 15g	odległość od Słońca=57,9 mln km
-Wenus	r=6 051km	dł.dnia=116d. 18g	odłegłość od Słońca=108 mln km
-Ziemia	r=6 371km	dł.dnia=1d		odległość od Słońca=149 mln km
-Mars	r=3 389km	dł.dnia=1d 0g 37 min	odleglość od Słońca=227,9 mln km
-Jowisz	r=69 911km	dł.dnia=0d 9g 56 min	odległość od Słońca=778,5 mln km
-Saturn	r=58 232km	dł.dnia=0d 10h 33 min	odleglość od Słońca=1,43E9 km
-Uran	r=25 362km	dł.dnia=0d 17h		odległość od Słońca=2,87E9 km
-Neptun	r=24 622km	dł.dnia=0d 16h 6 min	odległość od Słońca=4,49E9 km
+Mercury	r=2,439km	len.of.day=58d. 15h	  distance from the sun=57,9   mln km
+Venus	r=6 051km	len.of.day=116d. 18h	  distance from the sun=108    mln km
+Earth	r=6 371km	len.of.day=1d		  distance from the sun=149    mln km
+Mars	r=3 389km	len.of.day=1d 0g 37 min	  distance from the sun=227,9  mln km
+Jupiter	r=69 911km	len.of.day=0d 9g 56 min	  distance from the sun=778,5  mln km
+Saturn	r=58 232km	len.of.day=0d 10h 33 min  distance from the sun=1,43E9 km
+Uran	r=25 362km	len.of.day=0d 17h	  distance from the sun=2,87E9 km
+Neptun	r=24 622km	len.of.day=0d 16h 6 min	  distance from the sun=4,49E9 km
