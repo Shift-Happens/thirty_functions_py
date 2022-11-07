@@ -32,6 +32,7 @@ function_allocation_dict = {
     "28":functions.pi_monte_carlo,
     "29":functions.quadratic_equasions,
     "30":functions.countdown_timer,
+    "31":functions.christmas_tree #  Additional function
     }   
 
 while True:

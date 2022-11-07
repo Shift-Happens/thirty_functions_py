@@ -341,15 +341,13 @@ def planet_facts():
     while True:
         if numer == 0:
             break
-
-        elif numer==9:
-            numer=(random.randint(1,8))
-            funkcja(numer)
-            time.sleep(5)
-            return
+        # elif numer==9:
+        #     numer=(random.randint(1,8))
+        #     funkcja(numer)
+        #     time.sleep(5)
+        #     continue
         else:
             funkcja(numer)
-            time.sleep(5)
             return
 
     plik.close()
@@ -360,7 +358,43 @@ def tick_tack_toe():
 
 
 def hangman():
-    print("placeholder")
+    print("---HANGMAN---")
+
+    #password
+    print("Hi, your phrase to guess will now be randomly chosen")
+    plik=open("hangman.txt")
+    #a=int(random.choice(open('wisielec.txt','r').readlines()).strip())  #nie działa, nwm jak zrobic
+    a=random.randint(1,35)  #gorszy sposob bo manualnie trzeba wpisywac liczbe wierszy, nie umiem lepiej
+    password=linecache.getline("hangman.txt",a)
+
+    password_list=list(password)
+
+    #  loop to write ____
+    for i in range(len(password)-1):
+        password_list[i]="_"
+
+    life=8   #  amount of lives in game
+
+    #  while loop to guess letters
+    while life>0: #and len(password_list)>1:
+        print("\n Zostało Ci ",life," żyć")
+        print(" ".join(password_list))
+        litera=input("Podaj jedna litere: ")
+        #  good letter:
+        if litera in password:
+            for i in range(len(password)):
+                if(password[i]==litera):
+                    password_list[i]=litera
+            if "".join(map(str,password_list))==password:
+                print(password)
+                print("Congratulations, you've won!")
+                plik.close
+                break;
+        else:
+            life-=1  #  bad letter
+            if life==0:
+                print("End of game, try again!")
+
 
 def pi_monte_carlo():
     print("Now a program will try to estimate Pi using the Monte carlo method.")
@@ -431,12 +465,13 @@ def countdown_timer():
         t -= 1
     print("Time's up")
     
-    
+
+def christmas_tree():
+    user_input_raw = int(input("How many layers of christmas tree: "))
+    user_input = user_input_raw + 1
+
+    for i in range(0, user_input):
+        print(" "*(user_input - i) + "*"*(i * 2-1))
+        time.sleep(5)
   
 
-
-
-
-
-
-        
