@@ -25,14 +25,13 @@ function_allocation_dict = {
     "21":functions.time_show,
     "22":functions.currency_exchange,
     "23":functions.horoscope,
-    "24":functions.zodiac_sighns,
+    "24":functions.zodiac_sign,
     "25":functions.planet_facts,
-    "26":functions.tick_tack_toe,
+    "26":functions.christmas_tree,
     "27":functions.hangman,
     "28":functions.pi_monte_carlo,
     "29":functions.quadratic_equasions,
     "30":functions.countdown_timer,
-    "31":functions.christmas_tree #  Additional function
     }   
 
 while True:
@@ -67,7 +66,7 @@ while True:
     23.Horoscope
     24.Zodiac sighns
     25.Planet facts from our solar system
-    26.TickTackToe
+    26.Christmas Tree
     27.Hangman
     28.Counting PI using MonteCarlo method
     29.Solving quadratic equasions
@@ -82,5 +81,4 @@ while True:
         break
     else:
         function_allocation_dict[ans]()
-
 

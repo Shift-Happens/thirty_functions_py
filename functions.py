@@ -5,9 +5,8 @@ import math
 import cmath
 import linecache
 import re
-#import tkinter
 
-# 30 functionalities in one exectuable programme:
+# 30 functionalities in one exectuable program:
 # - no graphical interface
 # - using basic libaries
 
@@ -34,19 +33,15 @@ import re
 # 20. [done] Reverse a given string in python (I want to use reverse(examplestring)) https://www.geeksforgeeks.org/reverse-words-given-string-python/
 # 21. [done] Get current time and show it https://www.geeksforgeeks.org/python-program-to-get-current-time/
 # 22. [done] Currency calculation (offline, eg euro to pln)
-# 23. Horoscope (random - probably extra file and a random finction)
-# 24. Zodiac sighns (chineese and european) based on birthday date, additionaly showing relations
+# 23. [done]Horoscope (random - probably extra file and a random finction)
+# 24. [done]Zodiac sighns based on choice
 # 25. [done]Planets from solar system and after choosing from 1-9 some facts about them
-# 26. TickTackToe 
-# 27. Hangman 
+# 26. [done]Christmas Tree
+# 27. [done]Hangman 
 # 28. [done] Counting PI using MonteCarlo method
 # 29. [done]29. Solving quadratic equasions (a, b, c and -b formula) https://www.programiz.com/python-programming/examples/quadratic-roots
 # 30. [done] countdown timer
 
-
-# if __name__ == '__main__':
-# # to sie wykona tylko jesli uruchomimy glowny plik, jesli na przyklad zaimportujemy, 
-# # to do innego kodu, to wszystko w tym ifie sie nie wykona
 def name_and_age():
     user_name = input("Please input your name:\n :")
     user_age = int(input("Please input your age:\n :"))
@@ -317,12 +312,67 @@ def currency_exchange():
         else:
             dict_choice[user_choice]()
 
+
 def horoscope():
-    print("placeholder")
+    first = ["Today is perfect for new endeavors. ", "The tensions of this week will feel heavier today than yesterday. ", "Today is the day to cherish and embrace others. ", "Making yourself useful is a main component of a successful day. ", "Today, exercise caution when crossing the street. ",]
+    second = ["Remember that good things come to those who work hard. ", "Don’t let the circumstances bring you down. ", "Patience is key, but sometimes a little push can get the job done. ", "A smile can get you a long way. "]
+    third = ["Looking ahead may seem like a waste of time, but it pays off in the end. ", "Luck favors those who mind the risks and take them. ", "Today is the day for that thing you always wanted to do. ", "Luck is on your side today, so seize it! ", "Things are looking up for you! "]
+    second_add = ["You must be strong. ", "Invest in your relationships. ", "Make sure to breathe. ", "Take a risk today. "]
+
+    print("""
+    1 — Aries
+    2 — Taurus
+    3 — Gemini
+    4 — Cancer
+    5 — Leo
+    6 — Virgo
+    7 — Libra
+    8 — Scorpio
+    9 — Sagittarius
+    10 — Capricorn
+    11 — Aquarius
+    12 — Pisces
+    """)
+    
+    zodiac = int(input("Pick your sign by typing a number and pressing Enter: "))
+    if 0 < zodiac < 13:
+        print(random.choice(first), random.choice(second), random.choice(second_add), random.choice(third))
+        time.sleep(15)
+    else:
+	    print("This does not correspond to a zodiac sign")
 
 
-def zodiac_sighns():
-    print("placeholder")
+def zodiac_sign():
+# checks month and date within the valid range
+# of a specified zodiac
+    day = int(input("Enter Day (1-12):>"))
+    month = input("Enter the Month (e.g june, july):>")
+    
+    if month.lower == 'december':
+        astro_sign = 'Sagittarius' if (day < 22) else 'capricorn'
+    elif month.lower == 'january':
+        astro_sign = 'Capricorn' if (day < 20) else 'aquarius'
+    elif month.lower == 'february':
+        astro_sign = 'Aquarius' if (day < 19) else 'pisces'
+    elif month.lower == 'march':
+        astro_sign = 'Pisces' if (day < 21) else 'aries'
+    elif month.lower == 'april':
+        astro_sign = 'Aries' if (day < 20) else 'taurus'
+    elif month.lower == 'may':
+        astro_sign = 'Taurus' if (day < 21) else 'gemini'
+    elif month.lower == 'june':
+        astro_sign = 'Gemini' if (day < 21) else 'cancer'
+    elif month.lower == 'july':
+        astro_sign = 'Cancer' if (day < 23) else 'leo'
+    elif month.lower == 'august':
+        astro_sign = 'Leo' if (day < 23) else 'virgo'
+    elif month.lower == 'september':
+        astro_sign = 'Virgo' if (day < 23) else 'libra'
+    elif month.lower == 'october':
+        astro_sign = 'Libra' if (day < 23) else 'scorpio'
+    elif month.lower == 'november':
+        astro_sign = 'scorpio' if (day < 22) else 'sagittarius'   
+    print(astro_sign)
 
 
 def planet_facts():
@@ -351,10 +401,6 @@ def planet_facts():
             return
 
     plik.close()
-
-
-def tick_tack_toe():
-    print("placeholder")
 
 
 def hangman():
@@ -467,11 +513,11 @@ def countdown_timer():
     
 
 def christmas_tree():
-    user_input_raw = int(input("How many layers of christmas tree: "))
-    user_input = user_input_raw + 1
+    user_input = int(input("How many layers of christmas tree: "))
+    #user_input = user_input_raw + 1
 
-    for i in range(0, user_input):
+    for i in range(1, (user_input + 1)):
         print(" "*(user_input - i) + "*"*(i * 2-1))
-        time.sleep(5)
+    time.sleep(5)
   
 
